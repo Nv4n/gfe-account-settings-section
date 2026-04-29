@@ -1,15 +1,14 @@
 "use client";
 
+import { StyledLabel } from "@/components/styled-label";
 import { Button } from "@/components/ui/button";
 import {
 	Field,
 	FieldDescription,
 	FieldError,
-	FieldGroup,
-	FieldLabel,
+	FieldGroup
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { Account, AccountSchema } from "@/types/account";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
@@ -42,10 +41,7 @@ export function AccountSettingsForm() {
 						name="firstName"
 						render={({ field, fieldState }) => (
 							<Field>
-								<StyledLabel
-									className="text-sm text-neutral-700"
-									htmlFor="account-rhf-name"
-								>
+								<StyledLabel htmlFor="account-rhf-name">
 									First name
 								</StyledLabel>
 								<Input
@@ -147,13 +143,3 @@ export function AccountSettingsForm() {
 		</form>
 	);
 }
-
-const StyledLabel = ({
-	className,
-	...props
-}: React.ComponentProps<typeof FieldLabel>) => (
-	<FieldLabel
-		className={cn("text-sm text-neutral-700", className)}
-		{...props}
-	/>
-);
